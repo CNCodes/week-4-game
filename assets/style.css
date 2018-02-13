@@ -1,0 +1,28 @@
+body{
+	background-image: url('http://3.bp.blogspot.com/-v52EJX-q6VY/T69MlP9UuKI/AAAAAAAACws/W0Ctdo8Qnxo/s1600/Horror+House+Wallpapers+1.jpg');
+}
+
+h1{
+	color: #E8DF80;
+;
+}
+
+img{
+	height: 50px;
+}
+
+.styleWell{
+	background-color: #567561;
+	border-color: #E8DF80;
+}
+
+.img-responsive {
+	width: 100%;
+	height: 100px;
+}
+
+.styleMe{
+	color: #E8DF80;
+	background-color: black;
+	border: #E8DF80 solid 2px;
+}

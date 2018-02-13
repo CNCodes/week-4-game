@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Horror Movie Fight</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/style.css">
+	</head>
+	
+	<body>
+		<div class = "container">
+			<div class = "row text-center">
+				<h1> Horror Monster Action Game </h1>
+			</div>
+			<div class = "row">
+				<div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6">
+					<div id="choosePlayer" class = "row well styleWell">
+
+						<div id="freddy" class="picture styleMe col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center btn" data-health="150" data-attack="5" data-name="freddy">
+								<p>Freddy Kreuger</p>
+								<img class = "img-responsive" src="https://tse4.mm.bing.net/th?id=OIP.wYlturIPlOU9yP4avXhPbgAAAA&pid=15.1&P=0&w=300&h=300">
+								<p> 150 HP </p>
+						</div>
+
+						<div id="lagoon" class ="picture styleMe col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center btn" data-health="175" data-attack="20" data-name="lagoon">
+								<p>Black Lagoon</p>
+								<img class="img-responsive" src ="http://jasonedmiston.com/admin/wp-content/uploads/Creature-portrait-final.jpg">
+								<p data-hp="175"> 175 HP </p>
+						</div>
+
+						<div id="nosferatu" class ="picture styleMe col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center btn" data-health="190" data-attack="30" data-name="nostferatu">
+								<p>Nosferatu</p>
+								<img class="img-responsive" src ="http://www.cinefamily.org/wp-content/uploads/2014/05/nosferatu_480_309.jpg">
+								<p data-hp="175"> 175 HP </p>
+						</div>
+
+						<div id="necronomicon" class ="picture styleMe col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center btn" data-health="225" data-attack="25" data-name="necronomicon">
+								<p>Necronomicon</p>
+								<img class="img-responsive" src ="https://tse1.mm.bing.net/th?id=OIP.jctW2Ofjs9RuB0SDulMNVAHaK2&pid=15.1&P=0&w=300&h=300">
+								<p data-hp="175"> 175 HP </p>
+						</div>
+
+					</div>
+
+					<div id = "characterChosen" class = "row well styleWell">
+						<h1>Your Character</h1>
+					</div>
+
+					<div id = "fightDisplay" class = "row">
+						<div id="fightButton" class ="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn btn-lrg btn-warning">
+							<h2> fight </h2>
+						</div> 
+					</div>
+
+					<br>
+
+					<div id = "enemyChosen" class = "row well styleWell">
+						<h1>Enemy Chosen</h1>
+					</div>
+
+					<div id = "enemyPlayers" class = "row well styleWell">
+						<h1>Enemy Players</h1>
+					</div>
+
+
+					<div id = "defeatedCharacter" class = "row well styleWell">
+						<h1>Defeated Players</h1>
+					</div>
+		</div>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="assets/games.js"></script>
+</html>
