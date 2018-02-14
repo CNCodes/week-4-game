@@ -1,14 +1,24 @@
 
 var itsfightTime = false;
+
 var chosenYourCharacter = false;
+
 var opponentNotChosen = true;
+
 var playerChosen;
+
 var playerAttack;
+
 var playerHealth;
+
 var opponentChosen;
+
 var opponentHealth;
+
 var opponentAttack;
+
 var opponentCount = 0;
+
 $(document).ready(function(){
 
 $(".picture").on("click", function(){
@@ -41,7 +51,7 @@ $(document).on("click", ".opponent", function(){
 	if(opponentNotChosen){
 
 		opponentHealth = parseInt($(this).attr("data-health"));
-		opponentAttack = parseInt($(this).attr("data-attack"));
+		opponentAttack = parseInt($(this).attr("data-constant"));
 
 
 		$(this).addClass("defeatMe");
@@ -73,6 +83,7 @@ $("#fightButton").on("click", function(){
 		$(".defeatMe").appendTo(defeatedCharacter);
 		opponentNotChosen = true;
 		itsfightTime = false;
+		opponentCount++;
 
 	}
 
