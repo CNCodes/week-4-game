@@ -101,7 +101,6 @@ var gameObject = {
 
 		if(gameObject.playerStats.playerHealth <= 0){
 			alert("You lost");
-			$('#fightText').html('<p style = "color: #E8DF80;"> Choose Your Player </p>');
 			gameObject.resetGame();
 		}
 	});
@@ -109,6 +108,7 @@ var gameObject = {
 
 	resetGame: function() {
 		$(".picture").appendTo("#choosePlayer");
+		$('#fightText').html('<p style = "color: #E8DF80;"> Choose Your Players </p>');
 		$("#fightButton").off("click");
 		$(".opponent").off("click");
 		$(".defeatMe").removeClass("defeatMe");
