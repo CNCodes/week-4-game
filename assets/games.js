@@ -101,6 +101,7 @@ var gameObject = {
 
 		if(gameObject.playerStats.playerHealth <= 0){
 			alert("You lost");
+			$('#fightText').html('<p style = "color: #E8DF80;"> Choose Your Player </p>');
 			gameObject.resetGame();
 		}
 	});
