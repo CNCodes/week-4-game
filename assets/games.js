@@ -1,97 +1,130 @@
 
-var itsfightTime = false;
+var gameObject = {
 
-var chosenYourCharacter = false;
+	playerStats: {
 
-var opponentNotChosen = true;
+		playerChosen: "",
 
-var playerChosen;
+		playerAttack: "",
 
-var playerAttack;
+		playerHealth: "",
 
-var playerHealth;
+	},
 
-var opponentChosen;
+	opponentStats: {
 
-var opponentHealth;
+		opponentChosen: "",
 
-var opponentAttack;
+		opponentHealth: "",
 
-var opponentCount = 0;
+		opponentAttack: "",
+	},
 
-$(document).ready(function(){
+	/*initializeGame: function(name, image, attack, health, contstant) {
+		var newDiv = $('<div></div').addClass("picture styleMe col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center btn");
+		newDiv.attr({
+			data-attack: attack,
+			data-health: health,
+			data-constant: constant,
+		});
+		var nameSection = $('<p></p>').text(name);
+		var imageSection = $()
 
-$(".picture").on("click", function(){
 
-	if(chosenYourCharacter === false){
 
-	playerHealth = parseInt($(this).attr("data-health"));
-	playerAttack = parseInt($(this).attr("data-attack"));
+	}*/
 
-	$(this).removeClass("picture");
 
-	$(this).appendTo("#characterChosen");
+	startGame: function(){
+		$(".picture").on("click", function(){
 
-	$(".picture").addClass("opponent");
+				gameObject.playerStats.playerHealth = parseInt($(this).attr("data-health"));
+				gameObject.playerStats.playerAttack = parseInt($(this).attr("data-attack"));
 
-	$(".opponent").appendTo("#enemyPlayers");
+				$(this).removeClass("picture");
+				$(this).appendTo("#characterChosen");
 
-	$(".opponent").removeClass("picture");
+				$(".picture").addClass("opponent");
 
-	console.log(playerHealth, playerAttack);
+				$(this).addClass("picture");
 
-	chosenYourCharacter = true;
+				$(".opponent").appendTo("#enemyPlayers");
+
+				$(".picture").off("click");
+				
+				gameObject.chooseBadGuy();
+
+
+		});
+
+	},
+
+	chooseBadGuy: function(){
+		$(".opponent").on("click", function(){
+
+				gameObject.opponentStats.opponentHealth = parseInt($(this).attr("data-health"));
+				gameObject.opponentStats.opponentAttack = parseInt($(this).attr("data-constant"));
+
+				$(this).removeClass("opponent");
+				$(this).addClass("defeatMe");
+				$(this).appendTo("#enemyChosen");
+
+				gameObject.startTheBrawl();
+
+				$(".opponent").off("click");
+			
+		});
+
+	},
+
+	startTheBrawl: function(){	
+		$("#fightButton").on("click", function(){
+
+			gameObject.playerStats.playerHealth = gameObject.playerStats.playerHealth - gameObject.opponentStats.opponentAttack;
+
+			gameObject.opponentStats.opponentHealth = gameObject.opponentStats.opponentHealth - gameObject.playerStats.playerAttack;
+
+			gameObject.playerStats.playerAttack = gameObject.playerStats.playerAttack + (gameObject.playerStats.playerAttack*.5);
+
+			$('#fightText').html('<p style = "color: #E8DF80;"> Your health is ' + gameObject.playerStats.playerHealth + '</p><br><p style = "color: #E8DF80;"> Your opponents health is ' + gameObject.opponentStats.opponentHealth + '</p><br><p style = "color: #E8DF80;"> Your attack is now '+gameObject.playerStats.playerAttack);
+
+		if(gameObject.opponentStats.opponentHealth <= 0){
+			alert("You've defeated opponent");
+			$('#fightText').html( '<p style = "color: #E8DF80;"> Choose Your Next Opponent </p>');
+			$(".defeatMe").appendTo("#defeatedCharacter");
+			
+			gameObject.opponentCount++;
+			gameObject.chooseBadGuy();
+			$("#fightButton").off("click");
+
+		}
+
+		if(gameObject.playerStats.playerHealth <= 0){
+			alert("You lost");
+			gameObject.resetGame();
+		}
+	});
+},
+
+	resetGame: function() {
+		$(".picture").appendTo("#choosePlayer");
+		$("#fightButton").off("click");
+		$(".opponent").off("click");
+		$(".defeatMe").removeClass("defeatMe");
+		gameObject.startGame();
+	}
 
 }
 
+
+
+$(document).ready(function(){
+
+gameObject.startGame();
+
+$('#resetContainer').on('click', function(){
+	gameObject.resetGame();
 });
-
-$(document).on("click", ".opponent", function(){
-
-	if(opponentNotChosen){
-
-		opponentHealth = parseInt($(this).attr("data-health"));
-		opponentAttack = parseInt($(this).attr("data-constant"));
-
-
-		$(this).addClass("defeatMe");
-		$(this).appendTo("#enemyChosen");
-
-		console.log(opponentHealth, opponentAttack);
-
-		opponentNotChosen = false;
-		itsfightTime = true;
-	}
-});
-
-$("#fightButton").on("click", function(){
-	if(itsfightTime){
-
-		playerHealth = playerHealth - opponentAttack;
-
-		opponentHealth = opponentHealth - playerAttack;
-
-		playerAttack = playerAttack + (playerAttack*.5);
-
-		alert(playerHealth);
-		alert(opponentHealth);
-		alert(playerAttack);
-	}
-
-	if(opponentHealth <= 0){
-		alert("You've defeated opponent");
-		$(".defeatMe").appendTo(defeatedCharacter);
-		opponentNotChosen = true;
-		itsfightTime = false;
-		opponentCount++;
-
-	}
-
-	if(playerHealth <= 0){
-		alert("You lost");
-		location.reload();
-	}
-})
 
 });
 

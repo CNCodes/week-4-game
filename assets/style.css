@@ -29,3 +29,6 @@ img{
 	background-color: black;
 	border: #E8DF80 solid 2px;
 }
+ .btn-width{
+	width: 100%;
+ }

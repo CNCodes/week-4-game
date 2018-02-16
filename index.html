@@ -32,13 +32,13 @@
 						<div id="nosferatu" class ="picture styleMe col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center btn" data-health="190" data-attack="30" data-constant="50">
 								<p>Nosferatu</p>
 								<img class="img-responsive" src ="http://www.cinefamily.org/wp-content/uploads/2014/05/nosferatu_480_309.jpg">
-								<p data-hp="175"> 175 HP </p>
+								<p data-hp="175"> 190 HP </p>
 						</div>
 
 						<div id="necronomicon" class ="picture styleMe col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center btn" data-health="225" data-attack="25" data-constant="125">
 								<p>Necronomicon</p>
 								<img class="img-responsive" src ="https://tse1.mm.bing.net/th?id=OIP.jctW2Ofjs9RuB0SDulMNVAHaK2&pid=15.1&P=0&w=300&h=300">
-								<p data-hp="175"> 175 HP </p>
+								<p data-hp="175"> 225 HP </p>
 						</div>
 
 					</div>
@@ -48,9 +48,15 @@
 					</div>
 
 					<div id = "fightDisplay" class = "row">
-						<div id="fightButton" class ="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn btn-lrg btn-warning">
-							<h2> fight </h2>
+
+						<div id="fightButton" class ="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn btn-md btn-warning">
+							<h2 style="color: black; height: 100%;"> fight </h2>
 						</div> 
+
+						<div id="fightText" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 well styleWell text-center">
+							<p style="color: #E8DF80; height: 100%;"> Choose Your Players </p>
+						</div>
+
 					</div>
 
 					<br>
@@ -67,6 +73,10 @@
 					<div id = "defeatedCharacter" class = "row well styleWell">
 						<h1>Defeated Players</h1>
 					</div>
+
+					<div id = "resetContainer" class = "row btn btn-warning text-center btn-width">
+							<h2 style="color: black;"> Reset </h2>
+					</div>	
 		</div>
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
